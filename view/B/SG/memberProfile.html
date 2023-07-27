@@ -26,9 +26,31 @@
                 console.log(error);
             });
 
-            var member = null;
+           var member = null;
             document.addEventListener('DOMContentLoaded', function(){
                 member = JSON.parse(sessionStorage.getItem("member"));
+
+                if (member!= null) {
+                    const nameField = document.getElementById("name");
+                    const email = document.getElementById("email");
+                    const phone = document.getElementById("phone");
+                    const country = document.getElementById("country");
+                    const address = document.getElementById("address");
+                    const securityQn = document.getElementById("securityQuestion");
+                    const securityAns = document.getElementById("securityAnswer");
+                    const age = document.getElementById("age");
+                    const income = document.getElementById("income");
+
+                    nameField.value = member.name;
+                    email.value = member.email;
+                    phone.value = member.phone;
+                    country.value = member.country;
+                    address.value = member.address;
+                    securityQn.value = member.securityQuestion;
+                    securityAns.value = member.securityAnswer;
+                    age.value = member.age;
+                    income.value = member.income;
+                }
 
                 if(member.sla == 1) {
                     document.getElementById("serviceLevelAgreement").checked = true;
