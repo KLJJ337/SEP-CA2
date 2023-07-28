@@ -44,7 +44,8 @@
                     nameField.value = member.name;
                     email.value = member.email;
                     phone.value = member.phone;
-                    country.value = member.country;
+                    country.value = member.city;
+                    console.log(member.country)
                     address.value = member.address;
                     securityQn.value = member.securityQuestion;
                     securityAns.value = member.securityAnswer;
@@ -210,6 +211,34 @@
                 startDate.setDate(startDate.getDate() + daysToAdd);
                 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 return startDate.toLocaleDateString("en-US", options);
+            }
+
+            function resetForm() {
+                const nameField = document.getElementById("name");
+                    const email = document.getElementById("email");
+                    const phone = document.getElementById("phone");
+                    const country = document.getElementById("country");
+                    const address = document.getElementById("address");
+                    const securityQn = document.getElementById("securityQuestion");
+                    const securityAns = document.getElementById("securityAnswer");
+                    const age = document.getElementById("age");
+                    const income = document.getElementById("income");
+                    const oldPassword = document.getElementById("oldPassword");
+                    const newPassword = document.getElementById("password");
+                    const reNewPassword = document.getElementById("repassword");
+
+                    nameField.value = "";
+                    
+                    phone.value = "";
+                    country.value = "";
+                    address.value = "";
+                    securityQn.value = "";
+                    securityAns.value = "";
+                    age.value = "";
+                    income.value = "";
+                    oldPassword.value = "";
+                    newPassword.value = "";
+                    reNewPassword.value = "";
             }
 
             async function submitForm() {
@@ -646,7 +675,7 @@
                                             <div class="row">
                                                 <div class="form-group">
                                                     <input type="submit" onclick="submitForm()" value="Submit" class="btn btn-primary"/>
-                                                    <input type="reset" value="Reset" class="btn btn-primary"/>
+                                                    <input type="button" value="Reset" onclick="resetForm()" class="btn btn-primary"/>
                                                 </div>
                                             </div>
                                         </div>
