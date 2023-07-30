@@ -19,8 +19,18 @@
                     return response.json();
                 }).then(function (furniture) {
                     //set furniture details
-                    document.getElementById("imgFurniture").setAttribute('src', furniture.imageURL);
+                    document.getElementById("furnitureName").textContent = furniture.name;
+                var formattedPrice = '$' + furniture.price.toFixed(2); 
+                document.getElementById("price").textContent = formattedPrice; 
+                document.getElementById("description").textContent = furniture.description;
                 
+                var furnitureInfo = document.getElementById("furnitureInfo");
+                furnitureInfo.innerHTML = 'Height: ' + furniture.height +
+                    '<br>Length: ' + furniture.length +
+                    '<br>Width: ' + furniture.width;
+
+                    document.getElementById("imgFurniture").setAttribute('src', furniture.imageURL);
+                    document.getElementById("description")
                     if(memberEmail != null && memberEmail != '') {
                         document.getElementById("addToCartBtn").innerHTML = '<button class="btn btn-primary" onclick="addToCart(\''
                         + furniture.sku + '\',\'' + furniture.id + '\',' + furniture.price + ',\'' + furniture.name + '\',\''
@@ -176,7 +186,7 @@
                             <div class="col-md-6">
                                 <div class="summary entry-summary">
                                     <h2 class="shorter"><strong id="furnitureName"></strong></h2>
-                                    <div id="addToCartBtn"></div>
+                                    
                                     <p class="price"><h4 class="amount" id="price"></h4></p>
                                     <strong>Description</strong>
                                     <p class="taller" id="description"></p>
@@ -195,7 +205,9 @@
                                             </form>
                                         </div>
                                         <div id="quantityDiv"></div>
+                                        
                                     </div>
+                                    <div id="addToCartBtn"></div>
                                 </div>
                             </div>
                             <hr class="tall">

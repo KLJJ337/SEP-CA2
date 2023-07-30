@@ -49,7 +49,7 @@
                                             <input type="hidden" name="sku" value="' + furniture.sku + '"/>\
                                             <input type="submit" class="btn btn-primary btn-block" value="More Details"/>\
                                         </form>';
-                    }
+                    
 
                     //check if user is logged in
                     var memberEmail = sessionStorage.getItem('memberEmail');
@@ -59,6 +59,7 @@
                             '\',\'' + furniture.id + '\',' + furniture.price + ',\'' + furniture.name + '\',\'' + furniture.imageURL +
                             '\')">Add To Cart</button>';
                     }
+                }
                     htmlTxt += '</span></span></li>';
 
                     document.getElementById("furnituresDisplay").innerHTML = htmlTxt;
