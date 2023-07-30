@@ -26,7 +26,7 @@
                 console.log(error);
             });
 
-            var member = null;
+           var member = null;
             document.addEventListener('DOMContentLoaded', function(){
                 member = JSON.parse(sessionStorage.getItem("member"));
 
@@ -51,7 +51,7 @@
                     age.value = member.age;
                     income.value = member.income;
                 }
-                
+
                 if(member.sla == 1) {
                     document.getElementById("serviceLevelAgreement").checked = true;
                 }
