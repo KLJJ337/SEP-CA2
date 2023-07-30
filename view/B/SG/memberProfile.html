@@ -274,7 +274,6 @@
                             sla: document.getElementById("serviceLevelAgreement").checked ? 1:0,
                             password: document.getElementById("password").value
                         };
-                        
                         fetch(new Request('/api/updateMember',
                         {
                             method: 'PUT',
@@ -289,6 +288,7 @@
                             //update member's info in the session storage
                             sessionStorage.setItem("member", JSON.stringify(data));
                             sessionStorage.setItem("memberEmail", data.email);
+                            console.log(data.name);
                             sessionStorage.setItem("memberName", data.name);
                             var url = window.location.origin + window.location.pathname;
                             window.location.href = url + '?goodMsg=Successfully Updated!';
